@@ -1,0 +1,40 @@
+.page-header {
+    background-color: red;
+    height: var(--height-header);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .nav-tools {
+        width: var(--width-aside);
+        padding-left: 1rem;
+        background-color: var(--color-primary);
+        align-items: center;
+        gap: 1rem;
+        .logo {
+            width: 90px;
+            height: 20px;
+            content: url("../svg/youtube.svg");
+            
+        }
+        .burger {
+            width: 2rem;
+            height: 2rem;
+            content: url("../svg/list.svg");
+        }
+        .burger-container {
+            width: 40px;
+            height: 40px;;
+        }
+        .burger-container:hover {
+            background-color: lightgray;
+            border-radius: 50%;
+        }
+    }
+    .search-tools {
+        background-color: blue;
+    }
+    .user-tools {
+        background-color: pink;
+    }
+}

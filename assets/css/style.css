@@ -1,18 +1,21 @@
+@import "./header.css";
 :root {
     --color-primary: white;
     --color-secondary: black;
     --color-main: yellow;
-    --height-header: 5rem;
+    --height-header: 56px;
     --height-main: calc(100svh - var(--height-header));
+
+    --width-aside: 240px;
 }
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.page-header {
-    background-color: red;
-    height: var(--height-header);
+.row {
+    display: flex;
+    flex-direction: row;
 }
 .page-main {
     min-height: var(--height-main);
@@ -21,4 +24,15 @@
 .main-aside {
     width: 15vw;
     background-color: var(--color-primary);
+}
+.green {
+    background-color: green;
+}
+.big {
+    font-size: xx-large;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
