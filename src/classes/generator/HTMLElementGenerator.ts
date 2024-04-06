@@ -3,19 +3,39 @@ export class HTMLElementGenerator {
         classNames: string[] | null = null,
         id: string | null = null,
         content: string | null = null,
-        element: string): HTMLElement {
-        const div = document.createElement(element);
+        elementName: string): HTMLElement {
+        const elt = document.createElement(elementName);
+        this.setClasses(elt, classNames);
+        this.setId(elt, id);
+        this.setContent(elt, content);
+        return elt;
+    }
+    static generateInput(
+        classNames: string[] | null = null,
+        id: string | null = null,
+        element: string,
+        type: string): HTMLElement {
+        const elt = document.createElement(element);
+        return elt;
+    }
+
+    private static setClasses(elt: HTMLElement, classNames: string[] | null) {
         if (!(null == classNames)) {
             classNames.forEach(className => {
-                div.classList.add(className);
+                elt.classList.add(className);
             });
         }
+    }
+
+    private static setId(elt: HTMLElement, id: string | null): void {
         if (!(null == id)) {
-            div.id = id;
+            elt.id = id;
         }
+    }
+
+    private static setContent(elt: HTMLElement, content: string | null) {
         if (!(null == content)) {
-            div.innerText = content;
+            elt.innerText = content;
         }
-        return div;
     }
 }
