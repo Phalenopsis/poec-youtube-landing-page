@@ -3,19 +3,12 @@ export class HTMLElementGenerator {
         classNames: string[] | null = null,
         id: string | null = null,
         content: string | null = null,
-        elementName: string): HTMLElement {
+        elementName: string
+    ): HTMLElement {
         const elt = document.createElement(elementName);
         this.setClasses(elt, classNames);
         this.setId(elt, id);
         this.setContent(elt, content);
-        return elt;
-    }
-    static generateInput(
-        classNames: string[] | null = null,
-        id: string | null = null,
-        element: string,
-        type: string): HTMLElement {
-        const elt = document.createElement(element);
         return elt;
     }
 
