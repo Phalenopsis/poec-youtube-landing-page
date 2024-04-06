@@ -34,6 +34,14 @@
     .search-tools {
         background-color: var(--color-primary);
         height: 100%;
+        .blank {
+            display: block;
+            width: 40px;
+            height: 1px;
+            &:has(+.search-container input:focus){
+                display: none;
+            }
+        }
 
         .search-container {
         height: 40px;
@@ -41,6 +49,16 @@
         padding: 8px;
         padding-left: 1rem;
         border-radius: 20px 0 0 20px;
+            .search-icon {
+                display: none;
+            }
+            .search-icon:has(+ input:focus) {
+                display: block;
+                width: 16px;
+                height: 16px;
+                content: url("./../svg/search.svg");
+                margin: 0 16px 0 8px;
+            }
             input {
                 display: block;
                 width: 33vw;
@@ -49,7 +67,12 @@
                 padding: 1px;
                 font-size: 24px;
                 border: none;
-            }
+
+                &:focus{
+                    outline: none;
+                }
+            }        
+            
         }
         button {
             width: 64px;
