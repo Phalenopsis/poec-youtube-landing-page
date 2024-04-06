@@ -40,7 +40,17 @@ export class PageHeaderGenerated extends HeaderGenerated {
     }
 
     addUserTools(): void {
-        const container = DivGenerator.generate(["user-tools"]);
+        const container = DivGenerator.generate(["user-tools", "row", "centered"]);
+        const cameraButton = ButtonGenerator.generate(["icon", "centered"]);
+        container.appendChild(cameraButton)
+        const cameraIcon = DivGenerator.generate(["camera"]);
+        cameraButton.appendChild(cameraIcon);
+        const bellButton = ButtonGenerator.generate(["icon", "centered"]);
+        container.appendChild(bellButton);
+        const bellIcon = DivGenerator.generate(["bell"]);
+        bellButton.appendChild(bellIcon);
+        const userIcon = DivGenerator.generate(["user-icon", "centered"], null, "P");
+        container.appendChild(userIcon);
         this.node.appendChild(container);
     }
 }
