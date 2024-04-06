@@ -1,10 +1,10 @@
 import { HTMLElementGenerator } from "./HTMLElementGenerator.js";
 
 export class DivGenerator {
-    static generateDiv(
+    static generate(
         classNames: string[] | null = null,
         id: string | null = null,
         content: string | null = null): HTMLElement {
-        return HTMLElementGenerator.generateElement(classNames, id, content, "div");
+        return HTMLElementGenerator.generate(classNames, id, content, "div");
     }
 }

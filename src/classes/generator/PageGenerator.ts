@@ -1,3 +1,6 @@
+import { DivGenerator } from "./DivGenerator.js";
+import { HeaderGenerator } from "./HeaderGenerator.js";
+
 export class PageGenerator {
     static displayPage(): void {
         this.displayPageHeader();
@@ -5,9 +8,7 @@ export class PageGenerator {
     }
 
     static displayPageHeader(): void {
-        const header = document.createElement("header");
-        header.classList.add("page-header");
-        header.id = "page-header";
+        const header = HeaderGenerator.generate(["page-header"], "page-header");
         document.body.appendChild(header);
     }
 
@@ -16,5 +17,7 @@ export class PageGenerator {
         main.classList.add("page-main");
         main.id = "page-main";
         document.body.appendChild(main);
+        const test = DivGenerator.generate(["green", "big"], "greenId", "le petit chat vert");
+        main.appendChild(test);
     }
 }

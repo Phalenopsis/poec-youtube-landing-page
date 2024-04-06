@@ -1,5 +1,5 @@
 export class HTMLElementGenerator {
-    static generateElement(
+    static generate(
         classNames: string[] | null = null,
         id: string | null = null,
         content: string | null = null,
