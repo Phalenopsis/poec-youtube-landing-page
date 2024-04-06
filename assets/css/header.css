@@ -34,6 +34,7 @@
     .search-tools {
         background-color: var(--color-primary);
         height: 100%;
+
         .search-container {
         height: 40px;
         border: 1px solid grey;
@@ -64,8 +65,37 @@
         
     }
     .user-tools {
-        background-color: pink;
-        width: 20px;
-        height: 20px;
+        background-color: var(--color-primary);
+        padding-right: 1rem;
+        gap: 1rem;
+        
+        .user-icon {
+            width: 32px;
+            height: 32px;
+            background-color: lightcoral;
+            border-radius: 50%;
+            font-size: 24px;
+        }
+        button.icon {
+            border: none;
+            background-color: var(--color-primary);
+            height: 40px;
+            width: 40px;
+            div {
+                width: 24px;
+                height: 24px;
+            }
+            .camera {
+                content: url("./../svg/camera.svg");
+            }
+            .bell {
+                content: url("./../svg/bell.svg");
+            }
+            &:hover {
+                background-color: lightgray;
+                border-radius: 50%;
+            }
+        }
+        
     }
 }
