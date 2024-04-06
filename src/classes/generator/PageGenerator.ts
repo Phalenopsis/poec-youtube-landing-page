@@ -1,5 +1,6 @@
 import { DivGenerator } from "./DivGenerator.js";
 import { HeaderGenerator } from "./HeaderGenerator.js";
+import { PageHeaderGenerated } from "./../generated/PageHeaderGenerated.js";
 
 export class PageGenerator {
     static displayPage(): void {
@@ -8,8 +9,9 @@ export class PageGenerator {
     }
 
     static displayPageHeader(): void {
-        const header = HeaderGenerator.generate(["page-header"], "page-header");
-        document.body.appendChild(header);
+        const header = new PageHeaderGenerated(
+            HeaderGenerator.generate(["page-header"], "page-header"));
+        document.body.appendChild(header.node);
     }
 
     static displayPageMain(): void {
