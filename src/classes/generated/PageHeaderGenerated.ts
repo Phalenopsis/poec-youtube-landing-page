@@ -28,7 +28,12 @@ export class PageHeaderGenerated extends HeaderGenerated {
 
     addSearchTools(): void {
         const container = DivGenerator.generate(["search-tools", "row", "centered"]);
+        const blank = DivGenerator.generate(["blank"]);
+        container.appendChild(blank);
         const searchContainer = DivGenerator.generate(["search-container", "centered"]);
+        const searchIcon = DivGenerator.generate(["search-icon"]);
+        searchContainer.appendChild(searchIcon);
+
         container.appendChild(searchContainer);
         const input = InputGenerator.generate(["search"], "search", "text", "Rechercher");
         searchContainer.appendChild(input);
