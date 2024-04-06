@@ -1,9 +1,24 @@
 :root {
     --color-primary: white;
     --color-secondary: black;
+    --color-main: yellow;
+    --height-header: 5rem;
+    --height-main: calc(100svh - var(--height-header));
 }
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+.page-header {
+    background-color: red;
+    height: var(--height-header);
+}
+.page-main {
+    min-height: var(--height-main);
+    background-color: var(--color-main);
+}
+.main-aside {
+    width: 15vw;
+    background-color: var(--color-primary);
 }
