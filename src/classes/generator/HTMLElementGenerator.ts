@@ -12,7 +12,7 @@ export class HTMLElementGenerator {
         return elt;
     }
 
-    private static setClasses(elt: HTMLElement, classNames: string[] | null) {
+    protected static setClasses(elt: HTMLElement, classNames: string[] | null) {
         if (!(null == classNames)) {
             classNames.forEach(className => {
                 elt.classList.add(className);
@@ -20,15 +20,24 @@ export class HTMLElementGenerator {
         }
     }
 
-    private static setId(elt: HTMLElement, id: string | null): void {
+    protected static setId(elt: HTMLElement, id: string | null): void {
         if (!(null == id)) {
             elt.id = id;
         }
     }
 
-    private static setContent(elt: HTMLElement, content: string | null) {
+    protected static setContent(elt: HTMLElement, content: string | null) {
         if (!(null == content)) {
             elt.innerText = content;
+        }
+    }
+
+    protected static setAttribute(elt: HTMLElement, attributeValue: string | string[] | null, attribute: string): void {
+        if (attributeValue == null) return;
+        if (Array.isArray(attributeValue) && attribute == "class") {
+            this.setClasses(elt, attributeValue);
+        } else if (typeof attributeValue === "string") {
+            elt.setAttribute(attribute, attributeValue);
         }
     }
 }
