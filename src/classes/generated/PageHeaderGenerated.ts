@@ -1,9 +1,9 @@
-import { HeaderGenerated } from "./HeaderGenerated.js";
+import { AbstractElementGenerated } from "./AbstractElementGenerated.js";
 import { DivGenerator } from "../generator/DivGenerator.js";
 import { InputGenerator } from "../generator/InputGenerator.js";
 import { ButtonGenerator } from "../generator/ButtonGenerator.js";
 
-export class PageHeaderGenerated extends HeaderGenerated {
+export class PageHeaderGenerated extends AbstractElementGenerated {
     constructor(node: HTMLElement) {
         super(node);
         this.addNavTools();
