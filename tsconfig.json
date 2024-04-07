@@ -18,7 +18,8 @@
         "declaration": true,
     },
     "include": [
-        "src/main.ts"
+        "src/main.ts",
+        "src/test.ts"
     ],
     "exclude": [
         "build"
