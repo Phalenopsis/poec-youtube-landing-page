@@ -2,6 +2,7 @@
 @import "./header.css";
 @import "./main.css";
 @import "./aside.css";
+@import "./card.css";
 :root {
     --color-primary: white;
     --color-secondary: black;
@@ -39,4 +40,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.user-icon {
+    width: 32px;
+    height: 32px;
+    background-color: lightcoral;
+    border-radius: 50%;
+    font-size: 24px;
 }
