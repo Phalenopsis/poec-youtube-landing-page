@@ -1,12 +1,14 @@
 import { Converter } from "./../classes/service/Converter.js";
-import { TestInterface } from "./TestInterface.js"
+import { TestInterface } from "./type/TestInterface.js"
 
 export class Test {
     public static launchTests(): void {
+        this.testConvertNumberToSymbol();
         this.testConvertDateStringToTimeElapsed();
+
     }
 
-    private static testConvertDateStringToTimeElapsed(): void {
+    private static testConvertNumberToSymbol(): void {
         let testsOk: number = 0;
         const tests: TestInterface[] = [
             {
@@ -31,6 +33,44 @@ export class Test {
             },
         ];
 
+        tests.forEach((test) => {
+            testsOk += this.assert(test.value, test.expected)
+        })
+        this.displayNumberTestsOk(testsOk);
+    }
+
+    private static testConvertDateStringToTimeElapsed(): void {
+        let testsOk: number = 0;
+        const tests: TestInterface[] = [
+            {
+                expected: "moins d'1 jour",
+                value: Converter.convertDateStringToTimeElapsed("2024-04-07")
+            },
+            {
+                expected: "1 jour",
+                value: Converter.convertDateStringToTimeElapsed("2024-04-06")
+            },
+            {
+                expected: "2 jours",
+                value: Converter.convertDateStringToTimeElapsed("2024-04-05")
+            },
+            {
+                expected: "1 mois",
+                value: Converter.convertDateStringToTimeElapsed("2024-03-05")
+            },
+            {
+                expected: "11 mois",
+                value: Converter.convertDateStringToTimeElapsed("2023-05-10")
+            },
+            {
+                expected: "1 an",
+                value: Converter.convertDateStringToTimeElapsed("2023-04-01")
+            },
+            {
+                expected: "11 ans",
+                value: Converter.convertDateStringToTimeElapsed("2013-04-01")
+            },
+        ];
         tests.forEach((test) => {
             testsOk += this.assert(test.value, test.expected)
         })
