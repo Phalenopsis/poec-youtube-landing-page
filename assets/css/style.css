@@ -24,7 +24,6 @@
 }
 .page-main {
     min-height: var(--height-main);
-    background-color: var(--color-main);
 }
 .main-aside {
     width: 15vw;
