@@ -44,31 +44,31 @@ export class Test {
         const tests: TestInterface[] = [
             {
                 expected: "moins d'1 jour",
-                value: Converter.convertDateStringToTimeElapsed("2024-04-07")
+                value: Converter.convertDateStringToTimeElapsed("2024-04-07", "2024-04-07")
             },
             {
                 expected: "1 jour",
-                value: Converter.convertDateStringToTimeElapsed("2024-04-06")
+                value: Converter.convertDateStringToTimeElapsed("2024-04-06", "2024-04-07")
             },
             {
                 expected: "2 jours",
-                value: Converter.convertDateStringToTimeElapsed("2024-04-05")
+                value: Converter.convertDateStringToTimeElapsed("2024-04-05", "2024-04-07")
             },
             {
                 expected: "1 mois",
-                value: Converter.convertDateStringToTimeElapsed("2024-03-05")
+                value: Converter.convertDateStringToTimeElapsed("2024-03-05", "2024-04-07")
             },
             {
                 expected: "11 mois",
-                value: Converter.convertDateStringToTimeElapsed("2023-05-10")
+                value: Converter.convertDateStringToTimeElapsed("2023-05-10", "2024-04-07")
             },
             {
                 expected: "1 an",
-                value: Converter.convertDateStringToTimeElapsed("2023-04-01")
+                value: Converter.convertDateStringToTimeElapsed("2023-04-01", "2024-04-07")
             },
             {
                 expected: "11 ans",
-                value: Converter.convertDateStringToTimeElapsed("2013-04-01")
+                value: Converter.convertDateStringToTimeElapsed("2013-04-01", "2024-04-07")
             },
         ];
         tests.forEach((test) => {
