@@ -5,10 +5,16 @@ export class Converter {
         return "" + num;
     }
 
-    public static convertDateStringToTimeElapsed(dateString: string): string {
-        const today: Date = new Date("2024-04-07");
+    public static convertDateStringToTimeElapsed(dateString: string, otherDateString: string | null = null): string {
+        let otherDate: Date;
+        if (otherDateString === null) {
+            otherDate = new Date();
+        } else {
+            otherDate = new Date(otherDateString);
+        }
+
         const dateToCompare: Date = new Date(dateString);
-        const diffDays: number = this.getDifferenceBetween2Dates(today, dateToCompare);
+        const diffDays: number = this.getDifferenceBetween2Dates(otherDate, dateToCompare);
         if (diffDays < 1) {
             return `moins d'1 jour`;
         }
