@@ -2,6 +2,7 @@ import { AbstractElementGenerated } from "./AbstractElementGenerated.js";
 import { DivGenerator } from "../generator/DivGenerator.js";
 import { InputGenerator } from "../generator/InputGenerator.js";
 import { ButtonGenerator } from "../generator/ButtonGenerator.js";
+import { UserIcon } from "./UserIcon.js";
 
 export class PageHeaderGenerated extends AbstractElementGenerated {
     constructor(node: HTMLElement) {
@@ -81,8 +82,8 @@ export class PageHeaderGenerated extends AbstractElementGenerated {
         return bellButton;
     }
 
-    private getUserIcon() {
-        const userIcon = DivGenerator.generate(["user-icon", "centered"], null, "P");
+    private getUserIcon(): HTMLElement {
+        const userIcon = new UserIcon("P", "white", "red").node;
         return userIcon;
     }
 }
