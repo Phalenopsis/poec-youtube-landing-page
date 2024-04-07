@@ -3,9 +3,9 @@ export class HTMLElementGenerator {
         classNames: string[] | null = null,
         id: string | null = null,
         content: string | null = null,
-        elementName: string
+        elementTag: string
     ): HTMLElement {
-        const elt = document.createElement(elementName);
+        const elt = document.createElement(elementTag);
         this.setClasses(elt, classNames);
         this.setId(elt, id);
         this.setContent(elt, content);
