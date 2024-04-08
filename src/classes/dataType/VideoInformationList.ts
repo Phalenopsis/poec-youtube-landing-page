@@ -1,3 +1,3 @@
-import { VideoInformationInterface } from "../dataType/VideoInformationInterface";
+import { VideoInformation } from "./VideoInformation";
 
-export type VideoInformationList = VideoInformationInterface[];
+export type VideoInformationList = VideoInformation[];

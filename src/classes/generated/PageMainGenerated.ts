@@ -5,7 +5,7 @@ import { ButtonGenerator } from "../generator/ButtonGenerator.js";
 import { AsideGenerator } from "../generator/AsideGenerator.js";
 import { CardGenerated } from "./CardGenerated.js";
 import { ArticleGenerator } from "./../generator/ArticleGenerator.js";
-import { VideoInformationInterface } from "../dataType/VideoInformationInterface.js";
+import { VideoInformation } from "../dataType/VideoInformation.js";
 import { VideoManager } from "../manager/VideoManager.js";
 import { SectionGenerator } from "./../generator/SectionGenerator.js";
 
@@ -21,7 +21,7 @@ export class PageMainGenerated extends AbstractElementGenerated {
         this.node.appendChild(aside);
     }
 
-    addArticle(data: VideoInformationInterface, container: HTMLElement) {
+    addArticle(data: VideoInformation, container: HTMLElement) {
         const card: CardGenerated = new CardGenerated(
             ArticleGenerator.generate(["card-container"]),
             data

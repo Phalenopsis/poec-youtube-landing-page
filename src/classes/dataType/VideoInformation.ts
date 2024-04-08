@@ -1,4 +1,4 @@
-export interface VideoInformationInterface {
+export type VideoInformation = {
     title: string;
     author: string;
     posted: string;

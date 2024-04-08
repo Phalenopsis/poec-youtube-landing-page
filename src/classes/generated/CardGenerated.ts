@@ -1,4 +1,4 @@
-import { VideoInformationInterface } from "../dataType/VideoInformationInterface.js";
+import { VideoInformation } from "../dataType/VideoInformation.js";
 import { AbstractElementGenerated } from "./AbstractElementGenerated.js";
 import { DivGenerator } from "./../generator/DivGenerator.js";
 import { ImgGenerator } from "../generator/ImgGenerator.js";
@@ -8,8 +8,8 @@ import { SpanGenerator } from "./../generator/SpanGenerator.js";
 import { Converter } from "../service/Converter.js"
 
 export class CardGenerated extends AbstractElementGenerated {
-    private videoDesc: VideoInformationInterface;
-    public constructor(node: HTMLElement, videoDesc: VideoInformationInterface) {
+    private videoDesc: VideoInformation;
+    public constructor(node: HTMLElement, videoDesc: VideoInformation) {
         super(node);
         this.videoDesc = videoDesc;
         this.constructCard();
