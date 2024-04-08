@@ -1,5 +1,5 @@
 import { VideoInformation } from "../dataType/VideoInformation.js";
-import { AbstractElementGenerated } from "./AbstractElementGenerated.js";
+import { ArticleGenerator } from "./../generator/ArticleGenerator.js";
 import { DivGenerator } from "./../generator/DivGenerator.js";
 import { ImgGenerator } from "../generator/ImgGenerator.js";
 import { UserIcon } from "./UserIcon.js";
@@ -7,10 +7,11 @@ import { TitleGenerator } from "./../generator/TitleGenerator.js";
 import { SpanGenerator } from "./../generator/SpanGenerator.js";
 import { Converter } from "../service/Converter.js"
 
-export class CardGenerated extends AbstractElementGenerated {
+export class CardGenerated {
+    public node: HTMLElement;
     private videoDesc: VideoInformation;
-    public constructor(node: HTMLElement, videoDesc: VideoInformation) {
-        super(node);
+    public constructor(videoDesc: VideoInformation) {
+        this.node = ArticleGenerator.generate(["card-container"]);
         this.videoDesc = videoDesc;
         this.constructCard();
     }
@@ -59,5 +60,9 @@ export class CardGenerated extends AbstractElementGenerated {
         const postedSinceContent: string = "il y a " + postedSince;
         const postedSinceElt: HTMLElement = SpanGenerator.generate(["posted-since"], null, postedSinceContent);
         return postedSinceElt;
+    }
+
+    public getCategorie() {
+        return this.videoDesc.categories;
     }
 }

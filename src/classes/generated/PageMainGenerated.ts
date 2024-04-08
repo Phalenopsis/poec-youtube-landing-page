@@ -22,10 +22,7 @@ export class PageMainGenerated extends AbstractElementGenerated {
     }
 
     addArticle(data: VideoInformation, container: HTMLElement) {
-        const card: CardGenerated = new CardGenerated(
-            ArticleGenerator.generate(["card-container"]),
-            data
-        );
+        const card: CardGenerated = new CardGenerated(data);
         container.appendChild(card.node);
     }
     addMainContainer() {
