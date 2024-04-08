@@ -18,6 +18,8 @@ export class PageMainGenerated extends AbstractElementGenerated {
     private static filterEltList: HTMLElement[] = [];
     private static articleContainer: HTMLElement = DivGenerator.generate(["article-container"], "article-container");
     private static cardList: CardGenerated[] = [];
+    private static cardDisplayedList: CardGenerated[] = [];
+
     public constructor(node: HTMLElement) {
         super(node);
         this.addAside();
@@ -31,6 +33,7 @@ export class PageMainGenerated extends AbstractElementGenerated {
 
     addArticle(data: VideoInformation) {
         const card: CardGenerated = new CardGenerated(data);
+        PageMainGenerated.cardDisplayedList.push(card)
         PageMainGenerated.cardList.push(card);
         PageMainGenerated.articleContainer.appendChild(card.node);
     }
@@ -56,6 +59,7 @@ export class PageMainGenerated extends AbstractElementGenerated {
         //console.log((await videoManager).videoInformations)
         (await videoManager).videoInformations.forEach(element => {
             this.addArticle(element);
+
         });
     }
 
@@ -80,36 +84,60 @@ export class PageMainGenerated extends AbstractElementGenerated {
     private filterVideo(e: Event) {
         if (e.target instanceof Element) {
             const filter = e.target.id;
-            if (filter === "all") {
-                PageMainGenerated.filters = [];
-                PageMainGenerated.filterEltList.forEach(element => {
-                    if (element.id !== "all") {
-                        element.classList.contains('on') ? element.classList.remove('on') : '';
-                    }
-                });
-            } else {
-                const elt = document.getElementById(e.target.id);
-                if (elt !== null) {
-                    elt.classList.toggle("on");
-                }
-
-                if (PageMainGenerated.filters.includes(filter)) {
-                    const index = PageMainGenerated.filters.indexOf(filter);
-                    PageMainGenerated.filters.splice(index, 1);
-                } else {
-                    PageMainGenerated.filters.push(filter);
-                }
-            }
+            PageMainGenerated.updateFilters(filter);
         }
-        const cards = FilterCards.filter(PageMainGenerated.cardList, PageMainGenerated.filters);
+        PageMainGenerated.cardDisplayedList = FilterCards.filter(PageMainGenerated.cardList, PageMainGenerated.filters);
+        PageMainGenerated.diplayVisibleCards();
+    }
+
+    private static updateFilters(filter: string) {
+        if (filter === "all") {
+            PageMainGenerated.resetFilters();
+        } else {
+            PageMainGenerated.toggleFilter(filter);
+        }
+    }
+
+    private static resetFilters() {
+        PageMainGenerated.filters = [];
+        PageMainGenerated.filterEltList.forEach(element => {
+            if (element.id !== "all") {
+                element.classList.contains('on') ? element.classList.remove('on') : '';
+            }
+        });
+    }
+
+    private static toggleFilter(filter: string) {
+        PageMainGenerated.toggleFilterElement(filter);
+        PageMainGenerated.toggleFilterList(filter);
+    }
+
+    private static toggleFilterElement(filter: string) {
+        const elt = document.getElementById(filter);
+        if (elt !== null) {
+            elt.classList.toggle("on");
+        }
+    }
+
+    private static toggleFilterList(filter: string) {
+        if (PageMainGenerated.filters.includes(filter)) {
+            const index = PageMainGenerated.filters.indexOf(filter);
+            PageMainGenerated.filters.splice(index, 1);
+        } else {
+            PageMainGenerated.filters.push(filter);
+        }
+    }
+
+    private static diplayVisibleCards() {
         PageMainGenerated.resetArticleContainer();
-        cards.forEach(card => {
+        this.cardDisplayedList.forEach(card => {
             PageMainGenerated.articleContainer.appendChild(card.node);
         });
-
     }
 
     private static resetArticleContainer() {
         PageMainGenerated.articleContainer.innerHTML = '';
     }
+
+
 }
