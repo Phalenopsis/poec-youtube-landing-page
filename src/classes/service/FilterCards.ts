@@ -3,8 +3,10 @@ import { CardGenerated } from "./../generated/CardGenerated";
 export class FilterCards {
     public static filter(cards: CardGenerated[], filter: string[]): CardGenerated[] {
         const cardsFiltered: CardGenerated[] = [];
+        if (filter.length === 0 || filter.includes("all")) return cards;
+
         for (const card of cards) {
-            this.compareArray(card.getCategorie(), filter) ? cardsFiltered.push(card) : '';
+            this.compare(filter, card.getCategorie()) ? cardsFiltered.push(card) : '';
         }
         return cardsFiltered;
     }
@@ -20,5 +22,17 @@ export class FilterCards {
             }
             return true;
         }
+    }
+
+    private static compare(filterList: any[], cardList: any[]): boolean {
+        let nbCompareOk: number = 0;
+        for (let i: number = 0; i < filterList.length; i += 1) {
+            if (cardList.includes(filterList[i])) {
+                nbCompareOk += 1;
+            }
+        }
+        console.log(nbCompareOk, filterList.length);
+        return nbCompareOk === filterList.length;
+
     }
 }

@@ -2,26 +2,32 @@ main {
     display: flex;
     flex-direction: row;
 }
-.article-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.filter-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    margin: 0.5rem 0;
-    .filter{
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        background-color: rgb(240, 240, 240);
-        border: 1px solid grey;
-        border-radius: 10px;
+.main-container {
+    width: 100%;
+    .article-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .filter-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0.5rem 0;
+        .filter{
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: rgb(240, 240, 240);
+            border: 1px solid grey;
+            border-radius: 10px;
 
-        &:hover {
+            &:hover {
+                background-color: lightgray;
+            }
+        }
+        .on {
             background-color: lightgray;
         }
     }
