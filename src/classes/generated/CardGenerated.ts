@@ -18,7 +18,7 @@ export class CardGenerated {
 
     private constructCard() {
         this.node.appendChild(this.getImageContainer());
-        this.node.appendChild(this.getCardBody());
+        this.node.appendChild(this.getCardBodyElement());
     }
 
     private getImageContainer(): HTMLElement {
@@ -28,34 +28,34 @@ export class CardGenerated {
         return imgContainer;
     }
 
-    private getCardBody(): HTMLElement {
+    private getCardBodyElement(): HTMLElement {
         const cardBody: HTMLElement = DivGenerator.generate(['card-body']);
         // authorIcon
         const authorIcon: UserIcon = new UserIcon(this.videoDesc.author, "green", "yellow");
         cardBody.appendChild(authorIcon.node);
-        cardBody.appendChild(this.getCardInformation());
+        cardBody.appendChild(this.getCardInformationElements());
         return cardBody;
     }
 
-    private getCardInformation(): HTMLElement {
+    private getCardInformationElements(): HTMLElement {
         const cardInformationsElt: HTMLElement = DivGenerator.generate(["card-informations"]);
         const titleElt: HTMLElement = TitleGenerator.generate(2, this.videoDesc.title);
         const authorElt: HTMLElement = TitleGenerator.generate(3, this.videoDesc.author);
         cardInformationsElt.appendChild(titleElt);
         cardInformationsElt.appendChild(authorElt);
-        cardInformationsElt.appendChild(this.getViewsElt());
-        cardInformationsElt.appendChild(this.getPostedSince());
+        cardInformationsElt.appendChild(this.getViewsElement());
+        cardInformationsElt.appendChild(this.getPostedSinceElement());
         return cardInformationsElt;
     }
 
-    private getViewsElt(): HTMLElement {
+    private getViewsElement(): HTMLElement {
         const viewsNumber: string = Converter.convertNumberToSymbol(this.videoDesc.views);
         const viewsContent: string = viewsNumber + " vues";
         const viewsElt: HTMLElement = SpanGenerator.generate(["views"], null, viewsContent);
         return viewsElt;
     }
 
-    private getPostedSince(): HTMLElement {
+    private getPostedSinceElement(): HTMLElement {
         const postedSince: string = Converter.convertDateStringToTimeElapsed(this.videoDesc.posted);
         const postedSinceContent: string = "il y a " + postedSince;
         const postedSinceElt: HTMLElement = SpanGenerator.generate(["posted-since"], null, postedSinceContent);
@@ -65,4 +65,5 @@ export class CardGenerated {
     public getCategorie() {
         return this.videoDesc.categories;
     }
+
 }
