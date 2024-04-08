@@ -1,0 +1,73 @@
+[
+    {
+        "title": "Le roi ours",
+        "author": "Bob l'éponge",
+        "posted": "2023-12-25",
+        "views": 255,
+        "img": "https://picsum.photos/id/1020/600/400",
+        "categories": [
+            "nature"
+        ]
+    },
+    {
+        "title": "La tour eiffernarle",
+        "author": "Marchitect",
+        "posted": "2021-11-7",
+        "views": 8563214,
+        "img": "https://picsum.photos/id/318/600/400",
+        "categories": [
+            "architecture"
+        ]
+    },
+    {
+        "title": "Adorable dog",
+        "author": "Bob l'éponge",
+        "posted": "2023-12-25",
+        "views": 1236,
+        "img": "https://picsum.photos/id/1025/600/400",
+        "categories": [
+            "nature",
+            "cute"
+        ]
+    },
+    {
+        "title": "My Boat",
+        "author": "Cptain Haddock",
+        "posted": "2024-1-12",
+        "views": 4569,
+        "img": "https://picsum.photos/id/598/600/400",
+        "categories": [
+            "boat"
+        ]
+    },
+    {
+        "title": "Tintin's boat",
+        "author": "Cptain Haddock",
+        "posted": "2022-10-25",
+        "views": 1963,
+        "img": "https://picsum.photos/id/642/600/400",
+        "categories": [
+            "boat"
+        ]
+    },
+    {
+        "title": "Jack's boat",
+        "author": "Cptain Haddock",
+        "posted": "2024-3-25",
+        "views": 7569,
+        "img": "https://picsum.photos/id/211/600/400",
+        "categories": [
+            "boat"
+        ]
+    },
+    {
+        "title": "La vie secrète des fraises",
+        "author": "Cerise",
+        "posted": "2024-3-25",
+        "views": 56,
+        "img": "https://picsum.photos/id/1080/600/400",
+        "categories": [
+            "nature"
+        ]
+    }
+]
