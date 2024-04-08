@@ -1,13 +1,11 @@
-{
-    "categories": [
-        {
-            "categorie": "nature"
-        },
-        {
-            "categorie": "cute"
-        },
-        {
-            "categorie": "boat"
-        }
-    ]
-}
+[
+    {
+        "categorie": "nature"
+    },
+    {
+        "categorie": "cute"
+    },
+    {
+        "categorie": "boat"
+    }
+]
