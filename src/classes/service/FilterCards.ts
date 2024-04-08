@@ -31,7 +31,6 @@ export class FilterCards {
                 nbCompareOk += 1;
             }
         }
-        console.log(nbCompareOk, filterList.length);
         return nbCompareOk === filterList.length;
 
     }
