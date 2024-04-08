@@ -66,4 +66,12 @@ export class CardGenerated {
         return this.videoDesc.categories;
     }
 
+    public searchInDescription(searchedTerm: string): boolean {
+        if (this.videoDesc.title.toLowerCase().includes(searchedTerm)) return true;
+        if (this.videoDesc.author.toLowerCase().includes(searchedTerm)) return true;
+        for (const categorie of this.videoDesc.categories) {
+            if (categorie.includes(searchedTerm)) return true;
+        }
+        return false;
+    }
 }
