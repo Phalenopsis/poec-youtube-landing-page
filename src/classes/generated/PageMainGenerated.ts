@@ -8,6 +8,8 @@ import { ArticleGenerator } from "./../generator/ArticleGenerator.js";
 import { VideoInformation } from "../dataType/VideoInformation.js";
 import { VideoManager } from "../manager/VideoManager.js";
 import { SectionGenerator } from "./../generator/SectionGenerator.js";
+import { CategorieManager } from "../manager/CategorieManager.js";
+import { CategorieList } from "../dataType/CategorieList.js";
 
 export class PageMainGenerated extends AbstractElementGenerated {
     public constructor(node: HTMLElement) {
@@ -33,6 +35,7 @@ export class PageMainGenerated extends AbstractElementGenerated {
     }
     getFilterContainer(): HTMLElement {
         const filterContainer: HTMLElement = DivGenerator.generate(["filter-container"], "filter-container");
+        this.getCategories(filterContainer)
         return filterContainer;
     }
     getArticleContainer(): HTMLElement {
@@ -41,11 +44,19 @@ export class PageMainGenerated extends AbstractElementGenerated {
         return articleContainer;
     }
 
-    async getVideoCards(container: HTMLElement) {
+    async getVideoCards(container: HTMLElement): Promise<void> {
         const videoManager: Promise<VideoManager> = VideoManager.build();
         //console.log((await videoManager).videoInformations)
         (await videoManager).videoInformations.forEach(element => {
             this.addArticle(element, container);
         });
+    }
+    async getCategories(container: HTMLElement): Promise<void> {
+        const categorieManager: Promise<CategorieManager> = CategorieManager.build();
+        const categories: CategorieList = (await categorieManager).categories;
+        categories.forEach((elt) => {
+            const filter = DivGenerator.generate(["filter"], elt.categorie, elt.categorie);
+            container.appendChild(filter);
+        })
     }
 }
