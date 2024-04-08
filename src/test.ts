@@ -1,3 +1,3 @@
-import { TestConvert } from "./test/TestConvert.js"
+import { TestConvert } from "./test/unit/TestConvert.js"
 
 TestConvert.launchTests();

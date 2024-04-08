@@ -1,6 +1,6 @@
-import { AbstractTest } from "./AbstractTest.js";
-import { Converter } from "../classes/service/Converter.js";
-import { TestType } from "./type/TestType.js"
+import { AbstractTest } from "../AbstractTest.js";
+import { Converter } from "../../classes/service/Converter.js";
+import { TestType } from "../type/TestType.js"
 
 export class TestConvert extends AbstractTest {
     public static launchTests(): void {
