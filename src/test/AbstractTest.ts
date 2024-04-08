@@ -15,4 +15,13 @@ export class AbstractTest {
         }
         return 0;
     }
+
+    protected static assertEquals(value: any, expected: any): number {
+        for (const key in value) {
+            if (value[key] !== expected[key]) {
+                return 0;
+            }
+        }
+        return 1;
+    }
 } 
