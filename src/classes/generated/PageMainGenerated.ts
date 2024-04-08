@@ -139,5 +139,10 @@ export class PageMainGenerated extends AbstractElementGenerated {
         PageMainGenerated.articleContainer.innerHTML = '';
     }
 
-
+    public static searchInVideoCardList(searchedTerm: string) {
+        if (PageMainGenerated.filters.length === 0) PageMainGenerated.cardDisplayedList = PageMainGenerated.cardList;
+        const result = PageMainGenerated.cardDisplayedList.filter((card) => card.searchInDescription(searchedTerm));
+        PageMainGenerated.cardDisplayedList = result;
+        PageMainGenerated.diplayVisibleCards();
+    }
 }
