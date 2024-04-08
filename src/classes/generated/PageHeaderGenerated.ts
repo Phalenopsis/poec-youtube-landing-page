@@ -3,6 +3,7 @@ import { DivGenerator } from "../generator/DivGenerator.js";
 import { InputGenerator } from "../generator/InputGenerator.js";
 import { ButtonGenerator } from "../generator/ButtonGenerator.js";
 import { UserIcon } from "./UserIcon.js";
+import { PageMainGenerated } from "./PageMainGenerated.js";
 
 export class PageHeaderGenerated extends AbstractElementGenerated {
     constructor(node: HTMLElement) {
@@ -48,13 +49,14 @@ export class PageHeaderGenerated extends AbstractElementGenerated {
         const searchContainer = DivGenerator.generate(["search-container", "centered"]);
         const searchIcon = DivGenerator.generate(["search-icon"]);
         searchContainer.appendChild(searchIcon);
-        const input = InputGenerator.generate(["search"], "search", "text", "Rechercher");
+        const input = InputGenerator.generate(["search"], "search-input", "text", "Rechercher");
         searchContainer.appendChild(input);
         return searchContainer;
     }
 
     private getSearchButton(): HTMLElement {
         const button = ButtonGenerator.generate(["centered"]);
+        button.addEventListener("click", this.search)
         const searchLogo = DivGenerator.generate(["search-button"]);
         button.appendChild(searchLogo);
         return button;
@@ -85,5 +87,17 @@ export class PageHeaderGenerated extends AbstractElementGenerated {
     private getUserIcon(): HTMLElement {
         const userIcon = new UserIcon("P", "white", "red").node;
         return userIcon;
+    }
+
+    private search(): void {
+        const input = document.getElementById("search-input");
+        if (input instanceof HTMLInputElement) {
+            const searched = input.value.trim().toLowerCase();
+            PageMainGenerated.searchInVideoCardList(searched);
+
+        }
+        // parcourir les infos
+        // si searched dans info => garder la card
+        // afficher les cards gardées 
     }
 }
