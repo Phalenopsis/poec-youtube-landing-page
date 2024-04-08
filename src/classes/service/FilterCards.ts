@@ -6,7 +6,6 @@ export class FilterCards {
         for (const card of cards) {
             this.compareArray(card.getCategorie(), filter) ? cardsFiltered.push(card) : '';
         }
-
         return cardsFiltered;
     }
 
