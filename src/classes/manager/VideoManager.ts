@@ -1,12 +1,11 @@
-import { VideoInformationInterface } from "../dataType/VideoInformationInterface";
-
-type VideoInformationList = VideoInformationInterface[];
+import { VideoInformationList } from "./../dataType/VideoInformationList";
 
 export class VideoManager {
-    private _videoInformations: VideoInformationList;
+    #videoInformations: VideoInformationList;
     private static api: string = "./../assets/source/video-data-small.json";
+
     private constructor(videoInformations: VideoInformationList) {
-        this._videoInformations = videoInformations;
+        this.#videoInformations = videoInformations;
     }
 
     public static async build(): Promise<VideoManager> {
@@ -16,8 +15,6 @@ export class VideoManager {
     }
 
     get videoInformations(): VideoInformationList {
-        return this._videoInformations;
+        return this.#videoInformations;
     }
-
-
 } 
