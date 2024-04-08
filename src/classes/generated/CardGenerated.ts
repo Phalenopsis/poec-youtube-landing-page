@@ -21,25 +21,25 @@ export class CardGenerated extends AbstractElementGenerated {
     }
 
     private getImageContainer(): HTMLElement {
-        const imgContainer = DivGenerator.generate(['img-container']);
-        const img = ImgGenerator.generate(['card-img'], null, this.videoDesc.img);
+        const imgContainer: HTMLElement = DivGenerator.generate(['img-container']);
+        const img: HTMLElement = ImgGenerator.generate(['card-img'], null, this.videoDesc.img);
         imgContainer.appendChild(img);
         return imgContainer;
     }
 
     private getCardBody(): HTMLElement {
-        const cardBody = DivGenerator.generate(['card-body']);
+        const cardBody: HTMLElement = DivGenerator.generate(['card-body']);
         // authorIcon
-        const authorIcon = new UserIcon(this.videoDesc.author, "green", "yellow");
+        const authorIcon: UserIcon = new UserIcon(this.videoDesc.author, "green", "yellow");
         cardBody.appendChild(authorIcon.node);
         cardBody.appendChild(this.getCardInformation());
         return cardBody;
     }
 
     private getCardInformation(): HTMLElement {
-        const cardInformationsElt = DivGenerator.generate(["card-informations"]);
-        const titleElt = TitleGenerator.generate(2, this.videoDesc.title);
-        const authorElt = TitleGenerator.generate(3, this.videoDesc.author);
+        const cardInformationsElt: HTMLElement = DivGenerator.generate(["card-informations"]);
+        const titleElt: HTMLElement = TitleGenerator.generate(2, this.videoDesc.title);
+        const authorElt: HTMLElement = TitleGenerator.generate(3, this.videoDesc.author);
         cardInformationsElt.appendChild(titleElt);
         cardInformationsElt.appendChild(authorElt);
         cardInformationsElt.appendChild(this.getViewsElt());
