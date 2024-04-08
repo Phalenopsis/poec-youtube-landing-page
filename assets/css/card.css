@@ -1,0 +1,27 @@
+.card-container {
+    width: 360px;
+    height: 300px;
+    padding: 4px;
+    .img-container {
+        img {
+            width: 352px;
+            height: 198px;
+            border-radius: 24px;
+        }
+    }
+    .card-body{
+        display:flex;
+        flex-direction: row;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        .card-informations {
+            margin-left: 1rem;
+            span {
+                &.posted-since::before {
+                    padding: 0 4px;
+                    content: "•";
+                }
+            }   
+        }
+    }
+}
