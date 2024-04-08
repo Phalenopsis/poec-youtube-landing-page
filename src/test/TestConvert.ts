@@ -1,16 +1,16 @@
-import { Converter } from "./../classes/service/Converter.js";
-import { TestInterface } from "./type/TestInterface.js"
+import { AbstractTest } from "./AbstractTest.js";
+import { Converter } from "../classes/service/Converter.js";
+import { TestType } from "./type/TestType.js"
 
-export class Test {
+export class TestConvert extends AbstractTest {
     public static launchTests(): void {
         this.testConvertNumberToSymbol();
         this.testConvertDateStringToTimeElapsed();
-
     }
 
     private static testConvertNumberToSymbol(): void {
         let testsOk: number = 0;
-        const tests: TestInterface[] = [
+        const tests: TestType[] = [
             {
                 expected: "200",
                 value: Converter.convertNumberToSymbol(200)
@@ -41,7 +41,7 @@ export class Test {
 
     private static testConvertDateStringToTimeElapsed(): void {
         let testsOk: number = 0;
-        const tests: TestInterface[] = [
+        const tests: TestType[] = [
             {
                 expected: "moins d'1 jour",
                 value: Converter.convertDateStringToTimeElapsed("2024-04-07", "2024-04-07")
@@ -75,18 +75,5 @@ export class Test {
             testsOk += this.assert(test.value, test.expected)
         })
         this.displayNumberTestsOk(testsOk);
-    }
-
-    private static displayNumberTestsOk(testsOk: number): void {
-        console.log(`Nombre de tests réussis : ${testsOk}`);
-    }
-
-    private static assert(value: any, expected: any): number {
-        if (value === expected) {
-            return 1;
-        } else {
-            console.error(`Expected: ${expected}, returned: ${value}`);
-        }
-        return 0;
     }
 } 
