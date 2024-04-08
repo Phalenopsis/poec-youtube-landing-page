@@ -1,5 +1,6 @@
 main>aside {
     width: var(--width-aside);
+    min-width: var(--width-aside);
     min-height: var(--height-main);
     background-color: blueviolet;
 }
